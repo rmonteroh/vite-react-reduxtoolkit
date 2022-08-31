@@ -3,14 +3,12 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { addAmount, incremented } from './features/counter/counter-slice';
-import { useFetchCharactersQuery } from './features/apis/api-slice';
+import { CharacterDetail, Characters } from './components';
 
 function App() {
   const dispatch = useAppDispatch();
-  const [gender, setGender] = useState('male');
+  const [characterId, setCharacterId] = useState(-1);
   const count = useAppSelector((state) => state.counter.value);
-
-  const { data, isFetching } = useFetchCharactersQuery(gender);
   
   const add = () => {
     dispatch(incremented());
@@ -35,7 +33,11 @@ function App() {
           increasedBy 4: {count}
         </button>
       </div>
-      <div>
+      {
+        characterId > -1 ? <CharacterDetail characterId={characterId} resetCharacter={setCharacterId} /> : <Characters selectedCharacter={setCharacterId} />
+      }
+
+     {/*  <div>
         <p>Character grade selected:</p>
         <select value={gender} onChange={(e) => setGender(e.target.value)}>
           <option value="male">Male</option>
@@ -45,30 +47,22 @@ function App() {
       </div>
       <div>
         {
-          isFetching && (<div>Loading data......</div>)
+          isLoading && (<div>Loading data......</div>)
         }
         <p>Number of characters: {data?.results.length}</p>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              data?.results.map((character) => (
-                <tr key={character.id}>
-                  <td>{character.name}</td>
-                  <td>
-                    <img src={character.image} alt="Character image" height={250} />
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+          {
+            data?.results.map((character) => (
+              <div style={{marginBottom: 20, cursor: 'pointer'}} key={character.id}>
+                <div>
+                  <img src={character.image} alt="Character image" height={250} />
+                </div>
+                <div style={{fontSize: 20, color: 'white', fontWeight: 700}}>{character.name}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div> */}
     </div>
   )
 }
