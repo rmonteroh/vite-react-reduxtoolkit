@@ -37,32 +37,6 @@ function App() {
         characterId > -1 ? <CharacterDetail characterId={characterId} resetCharacter={setCharacterId} /> : <Characters selectedCharacter={setCharacterId} />
       }
 
-     {/*  <div>
-        <p>Character grade selected:</p>
-        <select value={gender} onChange={(e) => setGender(e.target.value)}>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="genderless">Genderless</option>
-        </select>
-      </div>
-      <div>
-        {
-          isLoading && (<div>Loading data......</div>)
-        }
-        <p>Number of characters: {data?.results.length}</p>
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
-          {
-            data?.results.map((character) => (
-              <div style={{marginBottom: 20, cursor: 'pointer'}} key={character.id}>
-                <div>
-                  <img src={character.image} alt="Character image" height={250} />
-                </div>
-                <div style={{fontSize: 20, color: 'white', fontWeight: 700}}>{character.name}</div>
-              </div>
-            ))
-          }
-        </div>
-      </div> */}
     </div>
   )
 }
