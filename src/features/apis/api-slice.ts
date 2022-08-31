@@ -43,8 +43,8 @@ export const apiSlice = createApi({
     },
   }), {
     maxRetries: 3, // Number of request made if the first time fail
-  }), 
-  */
+  }),  */
+ 
 
   baseQuery: fetchBaseQuery({
     baseUrl: "https://rickandmortyapi.com/api",
@@ -89,7 +89,7 @@ export const apiSlice = createApi({
 
       fetchCharacterById: builder.query<ICharacter, number>({
         query: (characterId) => `/character/${characterId}`,
-        extraOptions: { maxRetries: 3 }
+        extraOptions: { maxRetries: 10 }
       }),
 
       fetchGenderMale: builder.query<IApiResponse, null>({

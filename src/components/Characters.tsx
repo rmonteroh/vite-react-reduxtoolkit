@@ -29,7 +29,7 @@ export const Characters = ({ selectedCharacter }: ICharacterProps) => {
 
       // Set polling mechanism to revalidate data and compare server data with cache data
       // This values is in milliseconds
-      //pollingInterval: 3000
+      // pollingInterval: 3000
 
       // This value allow us to not execute this request immediately
       // We chan check the status of this query with isUninitialized param
@@ -37,7 +37,7 @@ export const Characters = ({ selectedCharacter }: ICharacterProps) => {
     });
 
   // The lazy hook is by default in status initialized
-  /*  const [trigger, { data, isFetching, isLoading, isUninitialized }] =
+/*    const [trigger, { data, isFetching, isLoading, isUninitialized }] =
     useLazyFetchCharactersQuery({
       refetchOnReconnect: true,
     }); */
